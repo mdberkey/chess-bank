@@ -6,7 +6,8 @@ DockerHub: https://hub.docker.com/repository/docker/mberkey/chess-bank
 
 ### Backend Diagram ###
 
-![Chess Bank Webapp-1](https://user-images.githubusercontent.com/34894903/130530447-c9020b5a-0e1f-475b-9a00-ed08c1cd79f2.png)
+![Chess Bank Webapp-2](https://user-images.githubusercontent.com/34894903/130530687-3553bb47-a8f8-4f82-9b0d-f602c4f3d240.png)
+
 
 
 ### Gallery ###
@@ -25,4 +26,3 @@ DockerHub: https://hub.docker.com/repository/docker/mberkey/chess-bank
 
 #### Game Data ####
 ![Screen Shot 2021-08-23 at 5 27 14 PM](https://user-images.githubusercontent.com/34894903/130527505-e55aa357-faaa-48a0-b00d-39903be2c663.png)
-
