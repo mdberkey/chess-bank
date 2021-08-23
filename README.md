@@ -1,7 +1,7 @@
 # chess-bank
 A free chess match databank CRUD webapp written in Flask and SQLAlchemy for fun.
 Deployed using Docker and AWS lightsail.
-Frontend could be prettier, but was built for functionality.
+Frontend could be prettier, but I going for functionality.
 DockerHub: https://hub.docker.com/repository/docker/mberkey/chess-bank
 
 ### Backend Diagram ###
