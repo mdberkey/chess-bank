@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}!
+</h1>
+
+<h8>Stats: </h8>
+<p>Wins: {{stats[0]}} ({{stats[3]}}%) Losses: {{stats[1]}} ({{stats[4]}}%) Stalemates {{stats[2]}} ({{stats[5]}}%)</p>
+<p>Total: {{stats[6]}}</p>
+
+<div class="column is-4 is-offset-4">
+    <h10 class="title">Add a new game</h10>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/dashboard">
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-small" type="link" name="link" placeholder="link">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-small" type="name" name="name" placeholder="name">
+                </div>
+            </div>
+
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-small" type="notes" name="notes" placeholder="notes" autofocus="">
+                </div>
+            </div>
+
+            <div>
+                <input type="radio" id="outcome0" name="outcome" value=0
+                       checked>
+                <label for="outcome0">Win</label>
+            </div>
+
+            <div>
+                <input type="radio" id="outcome1" name="outcome" value=1>
+                <label for="outcome1">Loss</label>
+            </div>
+
+            <div>
+                <input type="radio" id="outcome2" name="outcome" value=2>
+                <label for="outcome2">Stalemate</label>
+            </div>
+
+            <button class="button is-block is-info is-small">Save</button>
+        </form>
+    </div>
+</div>
+
+
+<style>
+ td {
+        width: 150px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 5px;
+      }
+</style>
+<table>
+  <thead>
+    <tr>
+        <th>Link</th>
+        <th>Name</th>
+        <th>Outcome</th>
+        <th>Notes</th>
+    </tr>
+    </thead>
+    <tbody>
+     {% for game in data %}
+            <tr>
+                <td>
+                     <a href={{game.link}}>link</a>
+                </td>
+                <td>{{game.name}}</td>
+                {% if game.outcome == 0 %}
+                    <td>Win</td>
+                {% elif game.outcome == 1 %}
+                <td>Loss</td>
+                {% else %}
+                <td>Stalemate</td>
+                {% endif %}
+                <td>{{game.notes}}</td>
+                <td>
+                    <form method="POST" action="./delete">
+                        <input type="hidden" value="{{game.link}}" name="link">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
